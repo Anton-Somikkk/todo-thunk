@@ -1,0 +1,24 @@
+.item {
+  font-family: monospace;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.deleteItem {
+  font-family: monospace;
+  cursor: pointer;
+  line-height: 1.5;
+  color: red;
+  transition: all 0.3s;
+}
+
+.deleteItem:hover {
+  color: rgb(175, 0, 0);
+}
+.deleteItem:active {
+  color: rgb(205, 141, 141);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: lightgray;
+}
