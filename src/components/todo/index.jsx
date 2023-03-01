@@ -11,7 +11,7 @@ export const Todo = ({ todo }) => {
   const dispatch = useDispatch();
 
   const toggleTodoItem = () => {
-     dispatch(toggleTodo(todo.id, !todo.completed));
+     dispatch(toggleTodo(todo.id, !todo.completed, todo.title));
   }
 
   return (

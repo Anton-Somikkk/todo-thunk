@@ -71,7 +71,7 @@ export default function todoReducer(state = initialState, action) {
     case TOGGLE_TODO_SUCCESS:
       const todosCopy = state.todos.slice();
       const targetTodoId = action.payload.todo.id;
-      const targetTodo = copy.find((todo) => todo.id === targetTodoId);
+      const targetTodo = todosCopy.find((todo) => todo.id === targetTodoId);
 
       targetTodo.completed = action.payload.todo.completed;
 
@@ -79,7 +79,7 @@ export default function todoReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: null,
-        todos: copy,
+        todos: todosCopy,
       };
 
     case TOGGLE_TODO_FAILURE:

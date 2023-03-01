@@ -12,7 +12,7 @@ import {
   toggleTodoFailure,
 } from '../creators/todo';
 
-const BASE_URL = 'https://api.fake.rest/e00809e7-6d05-421f-9eff-ae304107cb56/';
+const BASE_URL = 'https://api.fake.rest/e00809e7-6d05-421f-9eff-ae304107cb56';
 
 export const fetchTodos = () => async (dispatch) => {
   dispatch(fetchTodosStarted());
@@ -41,12 +41,14 @@ export const createTodo = (title) => async (dispatch) => {
   }
 };
 
-export const toggleTodo = (id, completed) => async (dispatch) => {
+export const toggleTodo = (id, completed, title) => async (dispatch) => {
   dispatch(toggleTodoStarted());
 
   try {
     const { data } = await axios.put(`${BASE_URL}/${id}`, {
       completed,
+      id,
+      title,
     });
 
     dispatch(toggleTodoSuccess(data));
