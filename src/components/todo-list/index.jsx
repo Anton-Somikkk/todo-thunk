@@ -16,7 +16,7 @@ export const TodoList = () => {
   const todos = useSelector(todosSelector);
   const loading = useSelector(todosLoadingSelector);
   const error = useSelector(todosErrorSelector);
- 
+  
   const isEmptyList = !loading && !todos?.length;
 
   useEffect(() => {
@@ -43,4 +43,3 @@ export const TodoList = () => {
     </ul>
   );
 };
-

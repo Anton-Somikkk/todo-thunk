@@ -9,7 +9,7 @@ import styles from './index.module.css';
 
 export const Todo = ({ todo }) => {
   const dispatch = useDispatch();
-
+  console.log(todo);
   const toggleTodoItem = () => {
      dispatch(toggleTodo(todo.id, !todo.completed, todo.title));
   }
