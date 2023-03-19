@@ -12,7 +12,7 @@ import {
   toggleTodoFailure,
 } from '../creators/todo';
 
-const BASE_URL = 'https://api.fake.rest/e00809e7-6d05-421f-9eff-ae304107cb56';
+const BASE_URL = 'https://629470d963b5d108c18b87da.mockapi.io/todos';
 
 export const fetchTodos = () => async (dispatch) => {
   dispatch(fetchTodosStarted());
