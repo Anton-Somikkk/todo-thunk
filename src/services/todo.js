@@ -8,6 +8,7 @@ export const todoApi = createApi({
     baseUrl: 'https://629470d963b5d108c18b87da.mockapi.io',
   }),
   endpoints: (builder) => ({
+    
     getAllTodos: builder.query({
       query: () => 'todos',
       providesTags: (result = []) => [DATA_TAG],
