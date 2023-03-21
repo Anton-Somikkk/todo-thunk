@@ -1,17 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const DATA_TAG = { type: 'Todos', id: 'LIST' };
+// const DATA_TAG = { type: 'Todos', id: 'LIST' };
 
 export const todoApi = createApi({
   reducerPath: 'todoApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://629470d963b5d108c18b87da.mockapi.io',
   }),
+  tagTypes: ['AddTodo', 'UpdateTodo'],
   endpoints: (builder) => ({
     
     getAllTodos: builder.query({
       query: () => 'todos',
-      providesTags: (result = []) => [DATA_TAG],
+      providesTags: ['AddTodo', 'UpdateTodo'],
     }),
 
     addTodo: builder.mutation({
@@ -20,7 +21,7 @@ export const todoApi = createApi({
         method: 'POST',
         body,
       }),
-      invalidatesTags: [DATA_TAG],
+      invalidatesTags: ['AddTodo'],
     }),
     
     updateTodo: builder.mutation({
@@ -32,7 +33,7 @@ export const todoApi = createApi({
           body,
         };
       },
-      invalidatesTags: (post) => [{ type: DATA_TAG.type, id: post?.id }],
+      invalidatesTags: ['UpdateTodo'],
     }),
   }),
 });
